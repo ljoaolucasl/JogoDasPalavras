@@ -235,7 +235,7 @@ namespace Trabalho02_JogoDasPalavrasWinApp
 
                     j++;
 
-                    if (j == 4)
+                    if (j == 5)
                         return;
                 }
             }
