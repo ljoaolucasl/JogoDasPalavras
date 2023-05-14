@@ -90,7 +90,7 @@ namespace Trabalho02_JogoDasPalavrasWinApp
 
         public bool VerificaSeJogadorGanhou()
         {
-            if (palavraSecreta == palavraEscolhida)
+            if (String.Compare(palavraSecreta, palavraEscolhida, CultureInfo.CurrentCulture, CompareOptions.IgnoreNonSpace) == 0)
                 return true;
 
             return false;
