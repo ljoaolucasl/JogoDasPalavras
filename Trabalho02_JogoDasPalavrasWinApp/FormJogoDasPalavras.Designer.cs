@@ -55,8 +55,8 @@
             btn2_1 = new Button();
             btn1_1 = new Button();
             plTeclado = new Panel();
-            button53 = new Button();
-            button52 = new Button();
+            btnDel = new Button();
+            btnEnter = new Button();
             button51 = new Button();
             button50 = new Button();
             button49 = new Button();
@@ -95,7 +95,6 @@
             // plPainelDeLetras
             // 
             plPainelDeLetras.Anchor = AnchorStyles.None;
-            plPainelDeLetras.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             plPainelDeLetras.ColumnCount = 5;
             plPainelDeLetras.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             plPainelDeLetras.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
@@ -147,9 +146,9 @@
             btn5_5.Dock = DockStyle.Fill;
             btn5_5.Font = new Font("Verdana", 30F, FontStyle.Bold, GraphicsUnit.Point);
             btn5_5.ForeColor = Color.White;
-            btn5_5.Location = new Point(348, 352);
+            btn5_5.Location = new Point(347, 351);
             btn5_5.Name = "btn5_5";
-            btn5_5.Size = new Size(82, 81);
+            btn5_5.Size = new Size(84, 83);
             btn5_5.TabIndex = 24;
             btn5_5.UseCompatibleTextRendering = true;
             btn5_5.UseVisualStyleBackColor = false;
@@ -162,9 +161,9 @@
             btn4_5.Dock = DockStyle.Fill;
             btn4_5.Font = new Font("Verdana", 30F, FontStyle.Bold, GraphicsUnit.Point);
             btn4_5.ForeColor = Color.White;
-            btn4_5.Location = new Point(262, 352);
+            btn4_5.Location = new Point(261, 351);
             btn4_5.Name = "btn4_5";
-            btn4_5.Size = new Size(79, 81);
+            btn4_5.Size = new Size(80, 83);
             btn4_5.TabIndex = 23;
             btn4_5.UseCompatibleTextRendering = true;
             btn4_5.UseVisualStyleBackColor = false;
@@ -176,9 +175,9 @@
             btn3_5.Dock = DockStyle.Fill;
             btn3_5.Font = new Font("Verdana", 30F, FontStyle.Bold, GraphicsUnit.Point);
             btn3_5.ForeColor = Color.White;
-            btn3_5.Location = new Point(176, 352);
+            btn3_5.Location = new Point(175, 351);
             btn3_5.Name = "btn3_5";
-            btn3_5.Size = new Size(79, 81);
+            btn3_5.Size = new Size(80, 83);
             btn3_5.TabIndex = 22;
             btn3_5.UseCompatibleTextRendering = true;
             btn3_5.UseVisualStyleBackColor = false;
@@ -190,9 +189,9 @@
             btn2_5.Dock = DockStyle.Fill;
             btn2_5.Font = new Font("Verdana", 30F, FontStyle.Bold, GraphicsUnit.Point);
             btn2_5.ForeColor = Color.White;
-            btn2_5.Location = new Point(90, 352);
+            btn2_5.Location = new Point(89, 351);
             btn2_5.Name = "btn2_5";
-            btn2_5.Size = new Size(79, 81);
+            btn2_5.Size = new Size(80, 83);
             btn2_5.TabIndex = 21;
             btn2_5.UseCompatibleTextRendering = true;
             btn2_5.UseVisualStyleBackColor = false;
@@ -204,9 +203,9 @@
             btn1_5.Dock = DockStyle.Fill;
             btn1_5.Font = new Font("Verdana", 30F, FontStyle.Bold, GraphicsUnit.Point);
             btn1_5.ForeColor = Color.White;
-            btn1_5.Location = new Point(4, 352);
+            btn1_5.Location = new Point(3, 351);
             btn1_5.Name = "btn1_5";
-            btn1_5.Size = new Size(79, 81);
+            btn1_5.Size = new Size(80, 83);
             btn1_5.TabIndex = 20;
             btn1_5.UseCompatibleTextRendering = true;
             btn1_5.UseVisualStyleBackColor = false;
@@ -218,9 +217,9 @@
             btn5_4.Dock = DockStyle.Fill;
             btn5_4.Font = new Font("Verdana", 30F, FontStyle.Bold, GraphicsUnit.Point);
             btn5_4.ForeColor = Color.White;
-            btn5_4.Location = new Point(348, 265);
+            btn5_4.Location = new Point(347, 264);
             btn5_4.Name = "btn5_4";
-            btn5_4.Size = new Size(82, 80);
+            btn5_4.Size = new Size(84, 81);
             btn5_4.TabIndex = 19;
             btn5_4.UseCompatibleTextRendering = true;
             btn5_4.UseVisualStyleBackColor = false;
@@ -232,9 +231,9 @@
             btn4_4.Dock = DockStyle.Fill;
             btn4_4.Font = new Font("Verdana", 30F, FontStyle.Bold, GraphicsUnit.Point);
             btn4_4.ForeColor = Color.White;
-            btn4_4.Location = new Point(262, 265);
+            btn4_4.Location = new Point(261, 264);
             btn4_4.Name = "btn4_4";
-            btn4_4.Size = new Size(79, 80);
+            btn4_4.Size = new Size(80, 81);
             btn4_4.TabIndex = 18;
             btn4_4.UseCompatibleTextRendering = true;
             btn4_4.UseVisualStyleBackColor = false;
@@ -246,9 +245,9 @@
             btn3_4.Dock = DockStyle.Fill;
             btn3_4.Font = new Font("Verdana", 30F, FontStyle.Bold, GraphicsUnit.Point);
             btn3_4.ForeColor = Color.White;
-            btn3_4.Location = new Point(176, 265);
+            btn3_4.Location = new Point(175, 264);
             btn3_4.Name = "btn3_4";
-            btn3_4.Size = new Size(79, 80);
+            btn3_4.Size = new Size(80, 81);
             btn3_4.TabIndex = 17;
             btn3_4.UseCompatibleTextRendering = true;
             btn3_4.UseVisualStyleBackColor = false;
@@ -260,9 +259,9 @@
             btn2_4.Dock = DockStyle.Fill;
             btn2_4.Font = new Font("Verdana", 30F, FontStyle.Bold, GraphicsUnit.Point);
             btn2_4.ForeColor = Color.White;
-            btn2_4.Location = new Point(90, 265);
+            btn2_4.Location = new Point(89, 264);
             btn2_4.Name = "btn2_4";
-            btn2_4.Size = new Size(79, 80);
+            btn2_4.Size = new Size(80, 81);
             btn2_4.TabIndex = 16;
             btn2_4.UseCompatibleTextRendering = true;
             btn2_4.UseVisualStyleBackColor = false;
@@ -274,9 +273,9 @@
             btn1_4.Dock = DockStyle.Fill;
             btn1_4.Font = new Font("Verdana", 30F, FontStyle.Bold, GraphicsUnit.Point);
             btn1_4.ForeColor = Color.White;
-            btn1_4.Location = new Point(4, 265);
+            btn1_4.Location = new Point(3, 264);
             btn1_4.Name = "btn1_4";
-            btn1_4.Size = new Size(79, 80);
+            btn1_4.Size = new Size(80, 81);
             btn1_4.TabIndex = 15;
             btn1_4.UseCompatibleTextRendering = true;
             btn1_4.UseVisualStyleBackColor = false;
@@ -288,9 +287,9 @@
             btn5_3.Dock = DockStyle.Fill;
             btn5_3.Font = new Font("Verdana", 30F, FontStyle.Bold, GraphicsUnit.Point);
             btn5_3.ForeColor = Color.White;
-            btn5_3.Location = new Point(348, 178);
+            btn5_3.Location = new Point(347, 177);
             btn5_3.Name = "btn5_3";
-            btn5_3.Size = new Size(82, 80);
+            btn5_3.Size = new Size(84, 81);
             btn5_3.TabIndex = 14;
             btn5_3.UseCompatibleTextRendering = true;
             btn5_3.UseVisualStyleBackColor = false;
@@ -302,9 +301,9 @@
             btn4_3.Dock = DockStyle.Fill;
             btn4_3.Font = new Font("Verdana", 30F, FontStyle.Bold, GraphicsUnit.Point);
             btn4_3.ForeColor = Color.White;
-            btn4_3.Location = new Point(262, 178);
+            btn4_3.Location = new Point(261, 177);
             btn4_3.Name = "btn4_3";
-            btn4_3.Size = new Size(79, 80);
+            btn4_3.Size = new Size(80, 81);
             btn4_3.TabIndex = 13;
             btn4_3.UseCompatibleTextRendering = true;
             btn4_3.UseVisualStyleBackColor = false;
@@ -316,9 +315,9 @@
             btn3_3.Dock = DockStyle.Fill;
             btn3_3.Font = new Font("Verdana", 30F, FontStyle.Bold, GraphicsUnit.Point);
             btn3_3.ForeColor = Color.White;
-            btn3_3.Location = new Point(176, 178);
+            btn3_3.Location = new Point(175, 177);
             btn3_3.Name = "btn3_3";
-            btn3_3.Size = new Size(79, 80);
+            btn3_3.Size = new Size(80, 81);
             btn3_3.TabIndex = 12;
             btn3_3.UseCompatibleTextRendering = true;
             btn3_3.UseVisualStyleBackColor = false;
@@ -330,9 +329,9 @@
             btn2_3.Dock = DockStyle.Fill;
             btn2_3.Font = new Font("Verdana", 30F, FontStyle.Bold, GraphicsUnit.Point);
             btn2_3.ForeColor = Color.White;
-            btn2_3.Location = new Point(90, 178);
+            btn2_3.Location = new Point(89, 177);
             btn2_3.Name = "btn2_3";
-            btn2_3.Size = new Size(79, 80);
+            btn2_3.Size = new Size(80, 81);
             btn2_3.TabIndex = 11;
             btn2_3.UseCompatibleTextRendering = true;
             btn2_3.UseVisualStyleBackColor = false;
@@ -344,9 +343,9 @@
             btn1_3.Dock = DockStyle.Fill;
             btn1_3.Font = new Font("Verdana", 30F, FontStyle.Bold, GraphicsUnit.Point);
             btn1_3.ForeColor = Color.White;
-            btn1_3.Location = new Point(4, 178);
+            btn1_3.Location = new Point(3, 177);
             btn1_3.Name = "btn1_3";
-            btn1_3.Size = new Size(79, 80);
+            btn1_3.Size = new Size(80, 81);
             btn1_3.TabIndex = 10;
             btn1_3.UseCompatibleTextRendering = true;
             btn1_3.UseVisualStyleBackColor = false;
@@ -358,9 +357,9 @@
             btn5_2.Dock = DockStyle.Fill;
             btn5_2.Font = new Font("Verdana", 30F, FontStyle.Bold, GraphicsUnit.Point);
             btn5_2.ForeColor = Color.White;
-            btn5_2.Location = new Point(348, 91);
+            btn5_2.Location = new Point(347, 90);
             btn5_2.Name = "btn5_2";
-            btn5_2.Size = new Size(82, 80);
+            btn5_2.Size = new Size(84, 81);
             btn5_2.TabIndex = 9;
             btn5_2.UseCompatibleTextRendering = true;
             btn5_2.UseVisualStyleBackColor = false;
@@ -372,9 +371,9 @@
             btn4_2.Dock = DockStyle.Fill;
             btn4_2.Font = new Font("Verdana", 30F, FontStyle.Bold, GraphicsUnit.Point);
             btn4_2.ForeColor = Color.White;
-            btn4_2.Location = new Point(262, 91);
+            btn4_2.Location = new Point(261, 90);
             btn4_2.Name = "btn4_2";
-            btn4_2.Size = new Size(79, 80);
+            btn4_2.Size = new Size(80, 81);
             btn4_2.TabIndex = 8;
             btn4_2.UseCompatibleTextRendering = true;
             btn4_2.UseVisualStyleBackColor = false;
@@ -386,9 +385,9 @@
             btn3_2.Dock = DockStyle.Fill;
             btn3_2.Font = new Font("Verdana", 30F, FontStyle.Bold, GraphicsUnit.Point);
             btn3_2.ForeColor = Color.White;
-            btn3_2.Location = new Point(176, 91);
+            btn3_2.Location = new Point(175, 90);
             btn3_2.Name = "btn3_2";
-            btn3_2.Size = new Size(79, 80);
+            btn3_2.Size = new Size(80, 81);
             btn3_2.TabIndex = 7;
             btn3_2.UseCompatibleTextRendering = true;
             btn3_2.UseVisualStyleBackColor = false;
@@ -400,9 +399,9 @@
             btn2_2.Dock = DockStyle.Fill;
             btn2_2.Font = new Font("Verdana", 30F, FontStyle.Bold, GraphicsUnit.Point);
             btn2_2.ForeColor = Color.White;
-            btn2_2.Location = new Point(90, 91);
+            btn2_2.Location = new Point(89, 90);
             btn2_2.Name = "btn2_2";
-            btn2_2.Size = new Size(79, 80);
+            btn2_2.Size = new Size(80, 81);
             btn2_2.TabIndex = 6;
             btn2_2.UseCompatibleTextRendering = true;
             btn2_2.UseVisualStyleBackColor = false;
@@ -414,9 +413,9 @@
             btn1_2.Dock = DockStyle.Fill;
             btn1_2.Font = new Font("Verdana", 30F, FontStyle.Bold, GraphicsUnit.Point);
             btn1_2.ForeColor = Color.White;
-            btn1_2.Location = new Point(4, 91);
+            btn1_2.Location = new Point(3, 90);
             btn1_2.Name = "btn1_2";
-            btn1_2.Size = new Size(79, 80);
+            btn1_2.Size = new Size(80, 81);
             btn1_2.TabIndex = 5;
             btn1_2.UseCompatibleTextRendering = true;
             btn1_2.UseVisualStyleBackColor = false;
@@ -428,9 +427,9 @@
             btn5_1.Dock = DockStyle.Fill;
             btn5_1.Font = new Font("Verdana", 30F, FontStyle.Bold, GraphicsUnit.Point);
             btn5_1.ForeColor = Color.White;
-            btn5_1.Location = new Point(348, 4);
+            btn5_1.Location = new Point(347, 3);
             btn5_1.Name = "btn5_1";
-            btn5_1.Size = new Size(82, 80);
+            btn5_1.Size = new Size(84, 81);
             btn5_1.TabIndex = 4;
             btn5_1.UseCompatibleTextRendering = true;
             btn5_1.UseVisualStyleBackColor = false;
@@ -442,9 +441,9 @@
             btn4_1.Dock = DockStyle.Fill;
             btn4_1.Font = new Font("Verdana", 30F, FontStyle.Bold, GraphicsUnit.Point);
             btn4_1.ForeColor = Color.White;
-            btn4_1.Location = new Point(262, 4);
+            btn4_1.Location = new Point(261, 3);
             btn4_1.Name = "btn4_1";
-            btn4_1.Size = new Size(79, 80);
+            btn4_1.Size = new Size(80, 81);
             btn4_1.TabIndex = 3;
             btn4_1.UseCompatibleTextRendering = true;
             btn4_1.UseVisualStyleBackColor = false;
@@ -456,9 +455,9 @@
             btn3_1.Dock = DockStyle.Fill;
             btn3_1.Font = new Font("Verdana", 30F, FontStyle.Bold, GraphicsUnit.Point);
             btn3_1.ForeColor = Color.White;
-            btn3_1.Location = new Point(176, 4);
+            btn3_1.Location = new Point(175, 3);
             btn3_1.Name = "btn3_1";
-            btn3_1.Size = new Size(79, 80);
+            btn3_1.Size = new Size(80, 81);
             btn3_1.TabIndex = 2;
             btn3_1.UseCompatibleTextRendering = true;
             btn3_1.UseVisualStyleBackColor = false;
@@ -470,9 +469,9 @@
             btn2_1.Dock = DockStyle.Fill;
             btn2_1.Font = new Font("Verdana", 30F, FontStyle.Bold, GraphicsUnit.Point);
             btn2_1.ForeColor = Color.White;
-            btn2_1.Location = new Point(90, 4);
+            btn2_1.Location = new Point(89, 3);
             btn2_1.Name = "btn2_1";
-            btn2_1.Size = new Size(79, 80);
+            btn2_1.Size = new Size(80, 81);
             btn2_1.TabIndex = 1;
             btn2_1.UseCompatibleTextRendering = true;
             btn2_1.UseVisualStyleBackColor = false;
@@ -484,9 +483,9 @@
             btn1_1.Dock = DockStyle.Fill;
             btn1_1.Font = new Font("Verdana", 30F, FontStyle.Bold, GraphicsUnit.Point);
             btn1_1.ForeColor = Color.White;
-            btn1_1.Location = new Point(4, 4);
+            btn1_1.Location = new Point(3, 3);
             btn1_1.Name = "btn1_1";
-            btn1_1.Size = new Size(79, 80);
+            btn1_1.Size = new Size(80, 81);
             btn1_1.TabIndex = 0;
             btn1_1.UseCompatibleTextRendering = true;
             btn1_1.UseVisualStyleBackColor = false;
@@ -494,8 +493,8 @@
             // plTeclado
             // 
             plTeclado.Anchor = AnchorStyles.None;
-            plTeclado.Controls.Add(button53);
-            plTeclado.Controls.Add(button52);
+            plTeclado.Controls.Add(btnDel);
+            plTeclado.Controls.Add(btnEnter);
             plTeclado.Controls.Add(button51);
             plTeclado.Controls.Add(button50);
             plTeclado.Controls.Add(button49);
@@ -527,35 +526,36 @@
             plTeclado.Size = new Size(852, 234);
             plTeclado.TabIndex = 1;
             // 
-            // button53
+            // btnDel
             // 
-            button53.BackColor = Color.FromArgb(75, 75, 110);
-            button53.Cursor = Cursors.Hand;
-            button53.Font = new Font("Verdana", 20F, FontStyle.Bold, GraphicsUnit.Point);
-            button53.ForeColor = Color.White;
-            button53.Location = new Point(719, 76);
-            button53.Name = "button53";
-            button53.Size = new Size(101, 67);
-            button53.TabIndex = 29;
-            button53.Text = "Del";
-            button53.UseCompatibleTextRendering = true;
-            button53.UseVisualStyleBackColor = false;
-            button53.Click += Delete_Click;
+            btnDel.BackColor = Color.FromArgb(75, 75, 110);
+            btnDel.Cursor = Cursors.Hand;
+            btnDel.Font = new Font("Verdana", 20F, FontStyle.Bold, GraphicsUnit.Point);
+            btnDel.ForeColor = Color.White;
+            btnDel.Location = new Point(719, 76);
+            btnDel.Name = "btnDel";
+            btnDel.Size = new Size(101, 67);
+            btnDel.TabIndex = 29;
+            btnDel.Text = "Del";
+            btnDel.UseCompatibleTextRendering = true;
+            btnDel.UseVisualStyleBackColor = false;
+            btnDel.Click += Delete_Click;
             // 
-            // button52
+            // btnEnter
             // 
-            button52.BackColor = Color.FromArgb(75, 75, 110);
-            button52.Cursor = Cursors.Hand;
-            button52.Font = new Font("Verdana", 20F, FontStyle.Bold, GraphicsUnit.Point);
-            button52.ForeColor = Color.White;
-            button52.Location = new Point(603, 149);
-            button52.Name = "button52";
-            button52.Size = new Size(183, 67);
-            button52.TabIndex = 28;
-            button52.Text = "Enter";
-            button52.UseCompatibleTextRendering = true;
-            button52.UseVisualStyleBackColor = false;
-            button52.Click += Enter_Click;
+            btnEnter.BackColor = Color.FromArgb(75, 75, 110);
+            btnEnter.Cursor = Cursors.Hand;
+            btnEnter.Font = new Font("Verdana", 20F, FontStyle.Bold, GraphicsUnit.Point);
+            btnEnter.ForeColor = Color.White;
+            btnEnter.Location = new Point(603, 149);
+            btnEnter.Name = "btnEnter";
+            btnEnter.Size = new Size(183, 67);
+            btnEnter.TabIndex = 28;
+            btnEnter.Text = "Enter";
+            btnEnter.UseCompatibleTextRendering = true;
+            btnEnter.UseVisualStyleBackColor = false;
+            btnEnter.Click += Enter_Click;
+            btnEnter.Leave += ManterFocoEnter;
             // 
             // button51
             // 
@@ -1009,8 +1009,12 @@
             BackColor = Color.FromArgb(100, 100, 150);
             ClientSize = new Size(875, 785);
             Controls.Add(plPrincipal);
+            KeyPreview = true;
             Name = "FormJogoDasPalavras";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Jogo Das Palavras";
+            KeyDown += Teclado_KeyDown;
+            KeyPress += Teclado_KeyPress;
             Resize += CentralizarElementos;
             plPainelDeLetras.ResumeLayout(false);
             plTeclado.ResumeLayout(false);
@@ -1047,8 +1051,8 @@
         private Button btn3_1;
         private Button btn2_1;
         private Panel plTeclado;
-        private Button button53;
-        private Button button52;
+        private Button btnDel;
+        private Button btnEnter;
         private Button button51;
         private Button button50;
         private Button button49;

@@ -16,10 +16,11 @@ namespace Trabalho02_JogoDasPalavrasWinApp
 
         private string palavraSecreta;
 
-        public int rodada = 0;
-        public string palavraEscolhida;
-
         public string PalavraSecreta { get { return palavraSecreta; } }
+
+        public int rodada = 0;
+
+        public string palavraEscolhida;
 
         public void IniciarJogo()
         {

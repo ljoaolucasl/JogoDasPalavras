@@ -1,12 +1,13 @@
 # Jogo Das Palavras
 
-Uma Jogo das Palavras feito usando Windows Forms
+Um Jogo das Palavras feito usando Windows Forms
 
 
 ## Funcionalidades
 
 - Mais de 300 Palavras Secretas para tentar adivinhar
 - Super prático de jogar
+- Funcionalidade completa com o Teclado
 - Jogue quantas vezes quiser
 - Palavras Aleatórias
 - Design agradável
