@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormJogoDasPalavras));
             plPainelDeLetras = new TableLayoutPanel();
             btn5_5 = new Button();
             btn4_5 = new Button();
@@ -1009,6 +1010,7 @@
             BackColor = Color.FromArgb(100, 100, 150);
             ClientSize = new Size(875, 785);
             Controls.Add(plPrincipal);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             KeyPreview = true;
             Name = "FormJogoDasPalavras";
             StartPosition = FormStartPosition.CenterScreen;
