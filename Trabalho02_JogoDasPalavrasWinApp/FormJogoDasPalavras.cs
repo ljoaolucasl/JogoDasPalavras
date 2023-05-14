@@ -35,13 +35,13 @@ namespace Trabalho02_JogoDasPalavrasWinApp
 
         private void Teclado_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (Char.IsLetter(e.KeyChar))
+            if (Char.IsLetter(e.KeyChar) && plTeclado.Enabled)
                 InserirLetra(Char.ToUpper(e.KeyChar));
         }
 
         private void Teclado_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Back)
+            if (e.KeyCode == Keys.Back && plTeclado.Enabled)
                 ApagarUltimaLetra();
         }
 

@@ -77,7 +77,7 @@ namespace Trabalho02_JogoDasPalavrasWinApp
 
             numeroAleatorio = GerarNumeroAleatorio.Next(0, 377);
 
-            palavraSecreta = palavrasSecretas[numeroAleatorio].ToUpper();
+            palavraSecreta = "TESTE";//palavrasSecretas[numeroAleatorio].ToUpper();
         }
 
         public bool VerificaPalavraCompleta()
