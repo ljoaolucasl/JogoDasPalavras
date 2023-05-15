@@ -16,6 +16,10 @@ namespace Trabalho02_JogoDasPalavrasWinApp
 
         private string palavraSecreta;
 
+        private string mensagemFinal;
+
+        public string MensagemFinal { get { return mensagemFinal; } }
+
         public string PalavraSecreta { get { return palavraSecreta; } }
 
         public int rodada = 0;
@@ -77,7 +81,12 @@ namespace Trabalho02_JogoDasPalavrasWinApp
 
             numeroAleatorio = GerarNumeroAleatorio.Next(0, 377);
 
-            palavraSecreta = "TESTE";//palavrasSecretas[numeroAleatorio].ToUpper();
+            palavraSecreta = palavrasSecretas[numeroAleatorio].ToUpper();
+        }
+
+        public void RodadaFinalizada()
+        {
+            rodada++;
         }
 
         public bool VerificaPalavraCompleta()
@@ -91,7 +100,10 @@ namespace Trabalho02_JogoDasPalavrasWinApp
         public bool VerificaSeJogadorGanhou()
         {
             if (String.Compare(palavraSecreta, palavraEscolhida, CultureInfo.CurrentCulture, CompareOptions.IgnoreNonSpace) == 0)
+            {
+                mensagemFinal = "Parabéns, você GANHOU!";
                 return true;
+            }
 
             return false;
         }
@@ -99,7 +111,10 @@ namespace Trabalho02_JogoDasPalavrasWinApp
         public bool VerificaSeJogadorPerdeu()
         {
             if (rodada == 4)
+            {
+                mensagemFinal = "Infelizmente você PERDEU, a palavra secreta era " + palavraSecreta;
                 return true;
+            }
 
             return false;
         }
@@ -107,16 +122,6 @@ namespace Trabalho02_JogoDasPalavrasWinApp
         public string AvisoPalavraIncompleta()
         {
             return "Palavra incompleta";
-        }
-
-        public string AvisoVitoria()
-        {
-            return "Parabéns, você GANHOU!";
-        }
-
-        public string AvisoDerrota()
-        {
-            return "Infelizmente você PERDEU, a palavra secreta era ";
         }
 
         public bool CompararLetras(char letra1, char letra2)

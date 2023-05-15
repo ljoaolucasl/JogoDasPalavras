@@ -16,22 +16,14 @@ namespace Trabalho02_JogoDasPalavrasWinApp
 
         private void InicializarJogo()
         {
-            jogoDasPalavras = new();
+            jogoDasPalavras = new JogoDasPalavras();
 
-            btnEnter.Select();
-
-            btnJogarNovamente.Visible = false;
-            btnSair.Visible = false;
-            lbAviso.Visible = false;
-
-            plTeclado.Enabled = true;
-
-            ResetarPainelDeLetras();
-
-            ResetarTeclado();
+            ConfigurarInterfaceInicial();
 
             InicializarRodada();
         }
+
+        #region Events
 
         private void Teclado_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -72,6 +64,18 @@ namespace Trabalho02_JogoDasPalavrasWinApp
             this.Close();
         }
 
+        private void CentralizarElementos(object sender, EventArgs e)
+        {
+            plPrincipal.Location = new Point((ClientSize.Width - plPrincipal.Width) / 2, (ClientSize.Height - plPrincipal.Height) / 2);
+        }
+
+        private void ManterFocoEnter(object sender, EventArgs e)
+        {
+            btnEnter.Select();
+        }
+
+        #endregion
+
         private void ConfirmaPalavraEscolhida()
         {
             ObterPalavraEscolhida();
@@ -107,14 +111,14 @@ namespace Trabalho02_JogoDasPalavrasWinApp
             else if (jogoDasPalavras.VerificaSeJogadorPerdeu())
                 JogadorPerdeu();
 
-            jogoDasPalavras.rodada++;
+            jogoDasPalavras.RodadaFinalizada();
 
             InicializarRodada();
         }
 
         private void JogadorGanhou()
         {
-            MostrarMensagemFinal(jogoDasPalavras.AvisoVitoria(), Color.FromArgb(0, 64, 0));
+            MostrarMensagemFinal(Color.FromArgb(0, 64, 0));
             btnJogarNovamente.Visible = true;
             btnSair.Visible = true;
             plTeclado.Enabled = false;
@@ -122,7 +126,7 @@ namespace Trabalho02_JogoDasPalavrasWinApp
 
         private void JogadorPerdeu()
         {
-            MostrarMensagemFinal(jogoDasPalavras.AvisoDerrota() + jogoDasPalavras.PalavraSecreta, Color.FromArgb(64, 0, 0));
+            MostrarMensagemFinal(Color.FromArgb(64, 0, 0));
             btnJogarNovamente.Visible = true;
             btnSair.Visible = true;
             plTeclado.Enabled = false;
@@ -180,11 +184,6 @@ namespace Trabalho02_JogoDasPalavrasWinApp
             }
         }
 
-        private void CentralizarElementos(object sender, EventArgs e)
-        {
-            plPrincipal.Location = new Point((ClientSize.Width - plPrincipal.Width) / 2, (ClientSize.Height - plPrincipal.Height) / 2);
-        }
-
         private async void MostrarAvisoPalavraIncompleta(string mensagem, Color cor)
         {
             lbAviso.Text = mensagem;
@@ -196,11 +195,34 @@ namespace Trabalho02_JogoDasPalavrasWinApp
             lbAviso.Visible = false;
         }
 
-        private void MostrarMensagemFinal(string mensagem, Color cor)
+        private void MostrarMensagemFinal(Color cor)
         {
-            lbAviso.Text = mensagem;
+            lbAviso.Text = jogoDasPalavras.MensagemFinal;
             lbAviso.ForeColor = cor;
             lbAviso.Visible = true;
+        }
+
+        private void InicializarRodada()
+        {
+            foreach (Control btnLetra in plPainelDeLetras.Controls.Cast<Control>().Where(btnLetra => plPainelDeLetras.GetRow(btnLetra) == jogoDasPalavras.rodada))
+            {
+                btnLetra.BackColor = Color.FromArgb(125, 125, 175);
+            }
+        }
+
+        private void ConfigurarInterfaceInicial()
+        {
+            btnEnter.Select();
+
+            btnJogarNovamente.Visible = false;
+            btnSair.Visible = false;
+            lbAviso.Visible = false;
+
+            plTeclado.Enabled = true;
+
+            ResetarPainelDeLetras();
+
+            ResetarTeclado();
         }
 
         private void ResetarPainelDeLetras()
@@ -220,14 +242,6 @@ namespace Trabalho02_JogoDasPalavrasWinApp
             }
         }
 
-        private void InicializarRodada()
-        {
-            foreach (Control btnLetra in plPainelDeLetras.Controls.Cast<Control>().Where(btnLetra => plPainelDeLetras.GetRow(btnLetra) == jogoDasPalavras.rodada))
-            {
-                btnLetra.BackColor = Color.FromArgb(125, 125, 175);
-            }
-        }
-
         private void InserirLetra(char letraTeclado)
         {
             foreach (Control btnLetra in plPainelDeLetras.Controls.Cast<Control>().Reverse().Where(btnLetra => plPainelDeLetras.GetRow(btnLetra) == jogoDasPalavras.rodada && btnLetra.Text == ""))
@@ -244,11 +258,6 @@ namespace Trabalho02_JogoDasPalavrasWinApp
                 btnLetra.Text = "";
                 break;
             }
-        }
-
-        private void ManterFocoEnter(object sender, EventArgs e)
-        {
-            btnEnter.Select();
         }
     }
 }
