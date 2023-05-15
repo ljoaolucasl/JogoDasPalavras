@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Trabalho02_JogoDasPalavrasWinApp
+namespace Trabalho02_JogoDasPalavrasWinApp.RegrasJogoDasPalavras
 {
     public class JogoDasPalavras
     {
@@ -89,6 +89,25 @@ namespace Trabalho02_JogoDasPalavrasWinApp
             rodada++;
         }
 
+        public EstadoLetras[] VerificarLetras()
+        {
+            EstadoLetras[] estadoLetras = new EstadoLetras[palavraEscolhida.Length];
+
+            for (int i = 0; i < palavraEscolhida.Length; i++)
+            {
+                if (CompararLetras(palavraEscolhida[i], palavraSecreta[i]))
+                    estadoLetras[i] = EstadoLetras.ExistePosicaoCorreta;
+
+                else if (palavraSecreta.ContainsSemConsiderarAcento(palavraEscolhida[i]))
+                    estadoLetras[i] = EstadoLetras.Existe;
+
+                else
+                    estadoLetras[i] = EstadoLetras.NaoExiste;
+            }
+
+            return estadoLetras;
+        }
+
         public bool VerificaPalavraCompleta()
         {
             if (palavraEscolhida.Length == 5)
@@ -99,7 +118,7 @@ namespace Trabalho02_JogoDasPalavrasWinApp
 
         public bool VerificaSeJogadorGanhou()
         {
-            if (String.Compare(palavraSecreta, palavraEscolhida, CultureInfo.CurrentCulture, CompareOptions.IgnoreNonSpace) == 0)
+            if (string.Compare(palavraSecreta, palavraEscolhida, CultureInfo.CurrentCulture, CompareOptions.IgnoreNonSpace) == 0)
             {
                 mensagemFinal = "Parabéns, você GANHOU!";
                 return true;
@@ -126,7 +145,7 @@ namespace Trabalho02_JogoDasPalavrasWinApp
 
         public bool CompararLetras(char letra1, char letra2)
         {
-            return String.Compare(letra1.ToString(), letra2.ToString(), CultureInfo.CurrentCulture, CompareOptions.IgnoreNonSpace) == 0;
+            return string.Compare(letra1.ToString(), letra2.ToString(), CultureInfo.CurrentCulture, CompareOptions.IgnoreNonSpace) == 0;
         }
     }
 }

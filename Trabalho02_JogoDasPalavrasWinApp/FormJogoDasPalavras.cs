@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Trabalho02_JogoDasPalavrasWinApp.RegrasJogoDasPalavras;
 
 namespace Trabalho02_JogoDasPalavrasWinApp
 {
@@ -20,7 +21,7 @@ namespace Trabalho02_JogoDasPalavrasWinApp
 
             ConfigurarInterfaceInicial();
 
-            InicializarRodada();
+            InicializarRodadaColorindoLinha();
         }
 
         #region Events
@@ -76,6 +77,24 @@ namespace Trabalho02_JogoDasPalavrasWinApp
 
         #endregion
 
+        private void InserirLetra(char letraTeclado)
+        {
+            foreach (Button btnLetra in plPainelDeLetras.Controls.Cast<Button>().Reverse().Where(btnLetra => plPainelDeLetras.GetRow(btnLetra) == jogoDasPalavras.rodada && btnLetra.Text == ""))
+            {
+                btnLetra.Text = letraTeclado.ToString();
+                break;
+            }
+        }
+
+        private void ApagarUltimaLetra()
+        {
+            foreach (Button btnLetra in plPainelDeLetras.Controls.Cast<Button>().Where(btnLetra => plPainelDeLetras.GetRow(btnLetra) == jogoDasPalavras.rodada && btnLetra.Text != ""))
+            {
+                btnLetra.Text = "";
+                break;
+            }
+        }
+
         private void ConfirmaPalavraEscolhida()
         {
             ObterPalavraEscolhida();
@@ -91,7 +110,7 @@ namespace Trabalho02_JogoDasPalavrasWinApp
         {
             jogoDasPalavras.palavraEscolhida = "";
 
-            foreach (Control btnLetra in plPainelDeLetras.Controls.Cast<Control>().Reverse().Where(btnLetra => plPainelDeLetras.GetRow(btnLetra) == jogoDasPalavras.rodada))
+            foreach (Button btnLetra in plPainelDeLetras.Controls.Cast<Button>().Reverse().Where(btnLetra => plPainelDeLetras.GetRow(btnLetra) == jogoDasPalavras.rodada))
             {
                 jogoDasPalavras.palavraEscolhida += btnLetra.Text;
             }
@@ -99,11 +118,7 @@ namespace Trabalho02_JogoDasPalavrasWinApp
 
         private void FinalizarRodada()
         {
-            VerificarLetrasNaoExistentes();
-
-            VerificarLetraExistente();
-
-            VerificarPosicaoLetra();
+            ColorirConformeAvaliacaoLetras();
 
             if (jogoDasPalavras.VerificaSeJogadorGanhou())
                 JogadorGanhou();
@@ -113,7 +128,37 @@ namespace Trabalho02_JogoDasPalavrasWinApp
 
             jogoDasPalavras.RodadaFinalizada();
 
-            InicializarRodada();
+            InicializarRodadaColorindoLinha();
+        }
+
+        private void ColorirConformeAvaliacaoLetras()
+        {
+            EstadoLetras[] estadoLetras = jogoDasPalavras.VerificarLetras();
+
+            for (int i = 0; i < estadoLetras.Length; i++)
+            {
+                List<Button> btnLetras = plPainelDeLetras.Controls.Cast<Button>().Reverse().Where(btnLetras => plPainelDeLetras.GetRow(btnLetras) == jogoDasPalavras.rodada).ToList();
+
+                switch (estadoLetras[i])
+                {
+                    case EstadoLetras.ExistePosicaoCorreta: btnLetras[i].BackColor = Color.Green; btnLetras[i].Text = jogoDasPalavras.PalavraSecreta[i].ToString(); break;
+                    case EstadoLetras.Existe: btnLetras[i].BackColor = Color.DarkOrange; break;
+                    case EstadoLetras.NaoExiste: btnLetras[i].BackColor = Color.FromArgb(25, 25, 75); break;
+                }
+
+                foreach (Button btnTeclado in plTeclado.Controls.Cast<Button>().Where(btnTeclado => btnTeclado.Text == jogoDasPalavras.palavraEscolhida[i].ToString()))
+                {
+                    switch (estadoLetras[i])
+                    {
+                        case EstadoLetras.ExistePosicaoCorreta: btnTeclado.BackColor = Color.Green; break;
+                        case EstadoLetras.Existe:
+                            if (btnTeclado.BackColor != Color.Green)
+                                btnTeclado.BackColor = Color.DarkOrange;
+                            break;
+                        case EstadoLetras.NaoExiste: btnTeclado.BackColor = Color.FromArgb(25, 25, 75); break;
+                    }
+                }
+            }
         }
 
         private void JogadorGanhou()
@@ -132,55 +177,11 @@ namespace Trabalho02_JogoDasPalavrasWinApp
             plTeclado.Enabled = false;
         }
 
-        private void VerificarLetrasNaoExistentes()
+        private void InicializarRodadaColorindoLinha()
         {
-            foreach (Control btnLetra in plPainelDeLetras.Controls.Cast<Control>().Where(btnLetra => plPainelDeLetras.GetRow(btnLetra) == jogoDasPalavras.rodada))
+            foreach (Button btnLetra in plPainelDeLetras.Controls.Cast<Button>().Where(btnLetra => plPainelDeLetras.GetRow(btnLetra) == jogoDasPalavras.rodada))
             {
-                btnLetra.BackColor = Color.FromArgb(75, 75, 125);
-
-                foreach (Control btnTeclado in plTeclado.Controls.Cast<Control>().Where(btnTeclado => btnTeclado.Text != "Del" && btnTeclado.Text != "Enter"))
-                {
-                    if (jogoDasPalavras.CompararLetras(Convert.ToChar(btnTeclado.Text), Convert.ToChar(btnLetra.Text)))
-                        btnTeclado.BackColor = Color.FromArgb(25, 25, 75);
-                }
-            }
-        }
-
-        private void VerificarLetraExistente()
-        {
-            foreach (char letraPalavraSecreta in jogoDasPalavras.PalavraSecreta)
-            {
-                foreach (Control btnLetra in plPainelDeLetras.Controls.Cast<Control>().Reverse().Where(btnLetra => plPainelDeLetras.GetRow(btnLetra) == jogoDasPalavras.rodada))
-                {
-                    if (jogoDasPalavras.CompararLetras(Convert.ToChar(btnLetra.Text), letraPalavraSecreta))
-                    {
-                        btnLetra.BackColor = Color.DarkOrange;
-
-                        foreach (Control btnTeclado in plTeclado.Controls.Cast<Control>().Where(btnTeclado => btnTeclado.Text == btnLetra.Text && btnTeclado.BackColor != Color.Green))
-                        {
-                            btnTeclado.BackColor = Color.DarkOrange;
-                        }
-                    }
-                }
-            }
-        }
-
-        private void VerificarPosicaoLetra()
-        {
-            for (int letra = 0; letra < jogoDasPalavras.PalavraSecreta.Length; letra++)
-            {
-                List<Control> btnLetras = plPainelDeLetras.Controls.Cast<Control>().Reverse().Where(btnLetras => plPainelDeLetras.GetRow(btnLetras) == jogoDasPalavras.rodada).ToList();
-
-                if (jogoDasPalavras.CompararLetras(Convert.ToChar(btnLetras[letra].Text), jogoDasPalavras.PalavraSecreta[letra]))
-                {
-                    btnLetras[letra].BackColor = Color.Green;
-                    btnLetras[letra].Text = jogoDasPalavras.PalavraSecreta[letra].ToString();
-
-                    foreach (Control btnTeclado in plTeclado.Controls.Cast<Control>().Where(btnTeclado => btnTeclado.Text == btnLetras[letra].Text))
-                    {
-                        btnTeclado.BackColor = Color.Green;
-                    }
-                }
+                btnLetra.BackColor = Color.FromArgb(125, 125, 175);
             }
         }
 
@@ -202,14 +203,6 @@ namespace Trabalho02_JogoDasPalavrasWinApp
             lbAviso.Visible = true;
         }
 
-        private void InicializarRodada()
-        {
-            foreach (Control btnLetra in plPainelDeLetras.Controls.Cast<Control>().Where(btnLetra => plPainelDeLetras.GetRow(btnLetra) == jogoDasPalavras.rodada))
-            {
-                btnLetra.BackColor = Color.FromArgb(125, 125, 175);
-            }
-        }
-
         private void ConfigurarInterfaceInicial()
         {
             btnEnter.Select();
@@ -227,7 +220,7 @@ namespace Trabalho02_JogoDasPalavrasWinApp
 
         private void ResetarPainelDeLetras()
         {
-            foreach (Control btnLetra in plPainelDeLetras.Controls)
+            foreach (Button btnLetra in plPainelDeLetras.Controls)
             {
                 btnLetra.Text = "";
                 btnLetra.BackColor = Color.FromArgb(100, 100, 150);
@@ -236,27 +229,9 @@ namespace Trabalho02_JogoDasPalavrasWinApp
 
         private void ResetarTeclado()
         {
-            foreach (Control btnTeclado in plTeclado.Controls)
+            foreach (Button btnTeclado in plTeclado.Controls)
             {
                 btnTeclado.BackColor = Color.FromArgb(75, 75, 110);
-            }
-        }
-
-        private void InserirLetra(char letraTeclado)
-        {
-            foreach (Control btnLetra in plPainelDeLetras.Controls.Cast<Control>().Reverse().Where(btnLetra => plPainelDeLetras.GetRow(btnLetra) == jogoDasPalavras.rodada && btnLetra.Text == ""))
-            {
-                btnLetra.Text = letraTeclado.ToString();
-                break;
-            }
-        }
-
-        private void ApagarUltimaLetra()
-        {
-            foreach (Control btnLetra in plPainelDeLetras.Controls.Cast<Control>().Where(btnLetra => plPainelDeLetras.GetRow(btnLetra) == jogoDasPalavras.rodada && btnLetra.Text != ""))
-            {
-                btnLetra.Text = "";
-                break;
             }
         }
     }
