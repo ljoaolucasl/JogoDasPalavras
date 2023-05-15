@@ -84,7 +84,7 @@ namespace Trabalho02_JogoDasPalavrasWinApp
                 FinalizarRodada();
 
             else
-                MostrarAvisoPalavraIncompleta(jogoDasPalavras.AvisoPalavraIncompleta(), Color.FromArgb(255, 128, 128));
+                MostrarAvisoPalavraIncompleta(Color.FromArgb(255, 128, 128));
         }
 
         private void ObterPalavraEscolhida()
@@ -184,9 +184,9 @@ namespace Trabalho02_JogoDasPalavrasWinApp
             }
         }
 
-        private async void MostrarAvisoPalavraIncompleta(string mensagem, Color cor)
+        private async void MostrarAvisoPalavraIncompleta(Color cor)
         {
-            lbAviso.Text = mensagem;
+            lbAviso.Text = jogoDasPalavras.AvisoPalavraIncompleta();
             lbAviso.ForeColor = cor;
             lbAviso.Visible = true;
 
